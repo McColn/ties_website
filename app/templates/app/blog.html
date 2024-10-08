@@ -1,0 +1,57 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- <div class="details">
+        <h3>Blog</h3>
+    </div> -->
+
+    <div class="top-link">
+        <p>Home    >    Blog</p>
+    </div>
+
+    <div style="background: #eef1f3;">
+        <div class="blog">
+            <a href="{% url 'blog_detail' %}">
+                <div class="card">
+                    <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                    <div class="text-overlay">
+                        <h5>Projects</h5>
+                        <h6>TSF Design and Management in Geita</h6>
+                        <p>The policy to submit most of famous awaken services may hinder us...</p>
+                    </div>
+                    <div class="uploader">
+                        <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                        <div class="left">
+                            <h6>Dr. Alphonce Wikedzi</h6>
+                            <p>Managing Director</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="card">
+                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                <div class="text-overlay">
+                    <h5>Projects</h5>
+                    <h6>TSF Design and Management in Geita</h6>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                <div class="text-overlay">
+                    <h5>Projects</h5>
+                    <h6>TSF Design and Management in Geita</h6>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                <div class="text-overlay">
+                    <h5>Projects</h5>
+                    <h6>TSF Design and Management in Geita</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

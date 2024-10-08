@@ -1,0 +1,80 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="top-link">
+    <p>Home    >    Projects > Project Details</p>
+</div>
+
+<div class="project_detail">
+    <div class="detail_left">
+        <div class="line"></div>
+        <h5>TSF Design in Mwanga Gold Mine</h5>
+        <div class="list">
+            <div class="item">
+                <h6>PROJECT</h6>
+                <p>Feasubility Study</p>
+            </div>
+            <div class="item">
+                <h6>LOCATION</h6>
+                <p>Geita - Tanzania</p>
+            </div>
+            <div class="item">
+                <h6>CLIENT</h6>
+                <p>Shadong</p>
+            </div>
+            <div class="item">
+                <h6>TIMEFRAME</h6>
+                <p>Aug 2024 - Now</p>
+            </div>
+            <div class="item">
+                <h6>COMMODITIES</h6>
+                <p>Uranium</p>
+            </div>
+            
+        </div>
+        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+        <div class="text">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio quae molestiae maiores 
+                laboriosam accusantium fugiat nihil, recusandae quisquam tempore inventore rem qui voluptas 
+                autem ullam. Harum ullam dolor doloremque atque!
+            </p>
+        </div>
+        <h6>Site Pictures</h6>
+        <div class="project_img">
+            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+        </div>
+    </div>
+    <div class="detail_right">
+        <div class="categories">
+            <h5>Our Services</h5>
+            <div class="line"></div>
+            <div class="services">
+                <p>Feasibility Study</p>
+                <p>Feasibility Study</p>
+                <p>Feasibility Study</p>
+                <p>Feasibility Study</p>
+                <p>Feasibility Study</p>
+            </div>
+        </div>
+
+        <div class="help">
+            <h6>How can we help you</h6>
+            <p>
+                Contact us at TIES office located at Sky City
+                Mall (7th Floor) opposite Mlimani City in Kinondoni
+                Dar es salaam
+                or submit a business inquiry online
+            </p>
+            <button>Contact</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

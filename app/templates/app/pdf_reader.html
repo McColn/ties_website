@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
+    <style>
+        /* Basic styles for the flipbook */
+        #flipbook {
+            width: 800px;
+            height: 500px;
+        }
+        #flipbook .page {
+            width: 400px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="flipbook">
+        <div class="page"><img src="{% static 'app/images/coln1.jpg' %}"></div>
+        <div class="page"><img src="{% static 'app/images/coln1.jpg' %}"></div>
+        <div class="page"><img src="{% static 'app/images/coln1.jpg' %}"></div>
+        <!-- Add as many pages as you need -->
+    </div>
+    
+     <!-- Navigation buttons -->
+     <button id="prev">Previous Page</button>
+     <button id="next">Next Page</button>
+     
+     <script type="text/javascript">
+         $(document).ready(function() {
+             // Initialize the flipbook
+             $("#flipbook").turn({
+                 width: 800,
+                 height: 500,
+                 autoCenter: true
+             });
+ 
+             // Previous page button functionality
+             $("#prev").click(function() {
+                 $("#flipbook").turn("previous");
+             });
+ 
+             // Next page button functionality
+             $("#next").click(function() {
+                 $("#flipbook").turn("next");
+             });
+         });
+     </script>
+
+</body>
+</html>
