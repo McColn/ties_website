@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'app/index.css' %}">
+</head>
+<body>
+
+
+  <div class="serviceAdd">
+    <h3>Company Service Add</h2>
+    <form method="post" id="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.title.label_tag }} {{ form.title }}
+        </div>
+
+        <div>
+            {{ form.image.label_tag }} {{ form.image }}
+        </div>
+
+        <!-- Create the editor container -->
+        <div id="editor-container"></div>
+        <!-- Hidden input to store the content -->
+        <input type="hidden" name="body" id="body">
+
+        <button type="submit" style="padding: 10px 30px; margin-top: 20px;">Save</button>
+    </form>
+  </div>
+    
+
+    <!-- Quill Library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var quill = new Quill('#editor-container', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['bold', 'italic', 'underline'],
+                    [{ 'align': [] }],
+                    ['link', 'image']
+                ]
+            }
+        });
+
+        // On form submit, update the hidden input with the Quill data
+        document.getElementById('post-form').onsubmit = function() {
+            var body = document.querySelector('input[name=body]');
+            body.value = quill.root.innerHTML;
+        };
+    </script>
+
+</body>
+</html>
+

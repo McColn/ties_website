@@ -13,13 +13,17 @@
     <div class="contact_us">
         <div class="form-part">
             <div class="left">
-                <div class="row">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="name">
-                </div>
-                <input type="text" placeholder="phone">
-                <textarea name="" id="" rows="4" placeholder="Message"></textarea>
-                <button>Submit</button>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <input type="text" placeholder="Email" name="email">
+                        <input type="text" placeholder="name" name="fullName">
+                    </div>
+                    <input type="text" placeholder="phone" name="phoneNumber">
+                    <textarea name="message" id="" rows="4" placeholder="Message"></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                    
             </div>
             <div class="right">
                 <h6>Our Newslatter</h6>

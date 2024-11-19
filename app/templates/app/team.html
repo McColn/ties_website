@@ -20,37 +20,23 @@
         </p>
 
         <div class="members">
-            <div class="team_item">
-                <img src="{% static 'app/images/coln1.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
-            <div class="team_item">
-                <img src="{% static 'app/images/coln.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
-            <div class="team_item">
-                <img src="{% static 'app/images/coln.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
-            <div class="team_item">
-                <img src="{% static 'app/images/coln.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
-            <div class="team_item">
-                <img src="{% static 'app/images/coln1.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
-            <div class="team_item">
-                <img src="{% static 'app/images/coln1.jpg' %}" alt="">
-                <h6>Cornel Mtavangu</h6>
-                <p>IT and System Developer</p>
-            </div>
+            {% for i in x %}
+                <a href="{% url 'team_details' i.id %}">
+                    <div class="team_item">
+                        <img src="{{i.image.url}}" alt="">
+                        <h6>{{i.name}}</h6>
+                        <p>{{i.role}}</p>
+                    </div>
+                </a>
+            {% endfor %}
+            
         </div>
+    </div>
+
+    <div class="staticpart">
+        <a href="{% url 'teamAdd' %}">
+            <button>Add Team Member</button>
+        </a>
     </div>
  
 {% endblock %}

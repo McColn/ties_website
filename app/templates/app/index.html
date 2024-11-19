@@ -47,151 +47,22 @@
       <div class="line"></div>
   </div>
   <div class="cards">
+    {% for i in services %}
       <div class="card reveal">
           <div class="circle">
               <i class="fa-solid fa-jet-fighter-up"></i>
           </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <a href="{% url 'services_details' %}">
+          <h4>{{i.title}}</h4>
+          <p>{{ i.body|truncatechars:100|safe }}</p>
+          <a href="{% url 'services_details' i.id %}">
             <p class="more">
                 Read More
                 <i class="fa-solid fa-chevron-right"></i>
             </p>
           </a>
       </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card reveal">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
-      <div class="card">
-          <div class="circle">
-              <i class="fa-solid fa-jet-fighter-up"></i>
-          </div>
-          <h4>TSF Design</h4>
-          <p>
-              One-size-fits-all isn’t our way of doing things. We tailor strategies
-          </p>
-          <p class="more">
-              Read More
-              <i class="fa-solid fa-chevron-right"></i>
-          </p>
-      </div>
+    {% endfor %}
+      
   </div>
 </section>
 
@@ -203,58 +74,30 @@
       <div class="line"></div>
   </div>
   <div class="row">
-      <div class="card">
-          <img src="{% static 'app/images/image-3.jpg' %}" alt=""  class="reveal">
-          <div class="line reveal"></div>
-          <h4 class="reveal">TSF Design</h4>
-          <p class="reveal">
-              Continuous professional staff development 
-              through training is critical for any 
-              organization as this improves performance 
-              and productivity. Having known this 
-              significance…
-          </p>
-          <div class="more reveal">
-              <p>read more</p>
-              <i class="fa-solid fa-chevron-right"></i>
-          </div>
-      </div>
-      <div class="card">
-          <img src="{% static 'app/images/image-3.jpg' %}" alt="">
-          <div class="line"></div>
-          <h4>VAT Leaching</h4>
-          <p>
-              Continuous professional staff development 
-              through training is critical for any 
-              organization as this improves performance 
-              and productivity. Having known this 
-              significance…
-          </p>
-          <div class="more">
-              <p>read more</p>
-              <i class="fa-solid fa-chevron-right"></i>
-          </div>
-      </div>
-      <div class="card">
-          <img src="{% static 'app/images/image-3.jpg' %}" alt="">
-          <div class="line"></div>
-          <h4>Training</h4>
-          <p>
-              Continuous professional staff development 
-              through training is critical for any 
-              organization as this improves performance 
-              and productivity. Having known this 
-              significance…
-          </p>
-          <div class="more">
-              <p>read more</p>
-              <i class="fa-solid fa-chevron-right"></i>
-          </div>
-      </div>
-      
-  </div>
 
-  <button class="reveal">More Projects</button>
+    {% for i in projects %}
+      <div class="card">
+          <img src="{{i.image.url}}" alt=""  class="reveal">
+          <div class="line reveal"></div>
+          <h4 class="reveal">{{i.title}}</h4>
+          <p class="reveal">
+            {{ i.body|truncatechars:100|safe }}
+          </p>
+        <a href="{% url 'project_details' i.id %}">
+            <div class="more reveal">
+                <p>read more</p>
+                <i class="fa-solid fa-chevron-right"></i>
+            </div>
+        </a>
+          
+      </div>
+      {% endfor %}
+
+  </div>
+  <a href="{% url 'projects' %}">
+    <button class="reveal">More Projects</button>
+  </a>
+  
   
 </section>
 
@@ -382,13 +225,16 @@
               </div>
           </div>
           <div class="right">
-              <div class="row">
-                  <input type="text" placeholder="Your name">
-                  <input type="text" placeholder="Your Email">
-              </div>
-              <input type="text" placeholder="Your Phone number">
-              <textarea name="" id="" rows="5"></textarea>
-              <button>Send message</button>
+            <form action="{% url 'messageSending' %}" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <input type="text" name="fullName" placeholder="Your name">
+                    <input type="text" name="email" placeholder="Your Email">
+                </div>
+                <input type="text" name="phoneNumber" placeholder="Your Phone number">
+                <textarea name="message" id="" rows="5"></textarea>
+                <button type="submit">Send message</button>
+            </form>
           </div>
       </div>
   </div>

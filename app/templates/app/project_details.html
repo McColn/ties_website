@@ -14,41 +14,36 @@
         <div class="list">
             <div class="item">
                 <h6>PROJECT</h6>
-                <p>Feasubility Study</p>
+                <p>{{project_detail.title}}</p>
             </div>
             <div class="item">
                 <h6>LOCATION</h6>
-                <p>Geita - Tanzania</p>
+                <p>{{project_detail.location}}</p>
             </div>
             <div class="item">
                 <h6>CLIENT</h6>
-                <p>Shadong</p>
+                <p>{{project_detail.client}}</p>
             </div>
             <div class="item">
                 <h6>TIMEFRAME</h6>
-                <p>Aug 2024 - Now</p>
+                <p>{{project_detail.timeframe}}</p>
             </div>
             <div class="item">
                 <h6>COMMODITIES</h6>
-                <p>Uranium</p>
+                <p>{{project_detail.Commodities}}</p>
             </div>
             
         </div>
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+        <img src="{{project_detail.image.url}}" alt="">
         <div class="text">
-            <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio quae molestiae maiores 
-                laboriosam accusantium fugiat nihil, recusandae quisquam tempore inventore rem qui voluptas 
-                autem ullam. Harum ullam dolor doloremque atque!
-            </p>
+            {{project_detail.body|safe}}
         </div>
         <h6>Site Pictures</h6>
         <div class="project_img">
-            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-            <img src="{% static 'app/images/image-5.jpg' %}" alt="">
+            {% for i in project_images %}
+                <img src="{{i.image.url}}" alt="">
+            {% endfor %}
+            <button id="openModalBasic">Add Picture</button>
         </div>
     </div>
     <div class="detail_right">
@@ -76,5 +71,59 @@
         </div>
     </div>
 </div>
+
+        <!--Project Add -->
+        <div id="basic" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              
+              <section class="info">
+                
+                <form action="{% url 'upload_project_image' project_detail.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <h5>Leave Request Form</h5>
+                    
+                    <div class="row">
+                        <div>
+                            <label for="startDate">Reason or Description</label>
+                            <input type="file" name="image">
+                        </div>
+                    </div>
+                    
+                    <button type="submit">Submit</button>
+                </form>
+              </section>
+        
+            </div>
+        </div>
+
+        <!--Basic info Script -->
+<script>
+    // Get the modal
+    var modal = document.getElementById("basic");
+  
+    // Get the button that opens the modal
+    var btn = document.getElementById("openModalBasic");
+  
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+  
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+  
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+</script>
 
 {% endblock %}

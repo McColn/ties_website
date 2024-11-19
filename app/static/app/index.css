@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+/* root css variables */
+:root {
+    --color-white: #ffffff;
+    --color-light: #f0eff5;
+    --color-gray-light: #86848c;
+    --color-gray-dark: #56555e;
+    --color-dark: #27282f;
+    --color-primary: rgb(234,181,7);
+    --color-danger: rgb(255,67,54);
+
+    --color-ties1: #1a3048;
+    --color-ties2: #9f893c;
+    --color-ties3: #ffbf00;
+
+}
 
 *{
     margin: 0;
@@ -14,6 +29,7 @@ li{
 }
 a {
     text-decoration: none;
+    color: #000;
 }
 h1 {
 font-family: 'Poppins', sans-serif;
@@ -23,19 +39,19 @@ h2 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 30px;
-    color: #173242;
+    color: var(--color-ties1);
 }
 h3 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 24px;
-    color: #173242;
+    color: var(--color-ties1);
 }
 h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 18px;
-    color: #173242;
+    color: var(--color-ties1);
     
 }
 p {
@@ -51,8 +67,42 @@ section{
 .line {
     height: 3px;
     width: 50px;
-    background: #fdba16;
+    background: var(--color-ties2);
     margin: 20px 0px 20px 0px;
+}
+#editor-container {
+    height: 300px; /* Set your desired height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.staticpart {
+    display: flex;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    padding: 10px 30px;
+    background-color: #9f893c;
+    z-index: 1000; 
+    border-radius: 5px;
+    
+}
+.staticpart:hover {
+    
+    background-color: transparent;
+    border: 1px dotted #9f893c;
+    
+}
+.staticpart button{
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+}
+.staticpart button:hover{
+    
+    color: #9f893c;
 }
 
 .top-link{
@@ -60,23 +110,26 @@ section{
     margin-top: 180px;
 }
 
-.top-nav{
+.top-nav {
     position: fixed; 
     background: #fff; 
     width: 100%; 
     top: 0;
     z-index: 1000; 
     padding: 0 0 20px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adjust values as needed */
 }
 
 .top{
     display: flex;
     justify-content: space-between;
     padding: 20px 70px 0px 70px;
+    align-items: center;
 }
 .top img{
     height: 60px;
     width: auto;
+    margin-right: 20px;
 }
 .top div{
     display: flex;
@@ -85,20 +138,24 @@ section{
 }
 .top div .material-icons{
     font-size: 26px;
-    color: #fdba16;
+    color: var(--color-ties2);
+    margin-right: 10px;
 }
 .top div p{
     display: flex;
     flex-direction: column;
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .section-title{
     padding: 10px 70px;
+    margin-top: 20px;
 }
 .section-title h5{
     font-size: 20px;
     font-weight: 600;
+    color: var(--color-ties1);
 }
 
 /* Nav container styling remains the same */
@@ -107,6 +164,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 70px 0px 70px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add this line */
 }
 
 nav .nav-list {
@@ -118,7 +176,7 @@ nav .nav-list {
 nav .nav-list li {
     font-size: 14px;
     font-weight: 700;
-    color: #173242;
+    color: var(--color-ties1);
     transition: ease 300ms all;
     padding: 10px 0px;
     position: relative; /* Add relative position to allow dropdown positioning */
@@ -128,13 +186,13 @@ nav .nav-list li a {
     text-decoration: none;
     font-size: 14px;
     font-weight: 700;
-    color: #173242;
+    color: var(--color-ties1);
     transition: ease 300ms all;
 }
 
 nav .nav-list li:hover {
     font-size: 15px;
-    color: #fdba16;
+    color: var(--color-ties2);
     cursor: pointer;
 }
 
@@ -147,7 +205,8 @@ nav .nav-list li .show {
     padding: 10px 0px;
     list-style: none;
     z-index: 1;
-    width: 150px;
+    width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add this line */
 }
 
 nav .nav-list li:hover .show {
@@ -157,24 +216,24 @@ nav .nav-list li:hover .show {
 nav .nav-list li .show li {
     padding: 10px;
     background: #fff;
-    color: #173242;
+    color: var(--color-ties1);
     font-size: 12px;
+    font-weight: 300;
     /* white-space: nowrap; */
 }
 
 nav .nav-list li .show li:hover {
-    background-color: #fdba16;
-    color: #173242;
+    background-color: var(--color-ties2);
+    color: var(--color-ties1);
 }
 
 nav div i {
-    color: #fdba16;
+    color: var(--color-ties2);
     margin: 0 5px;
     font-size: 20px;
 }
 
 .front-page{
-    /* background-image: url('image-3.jpg'); */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image-3.jpg');
     height: 100vh;
     background-position: center;
@@ -184,11 +243,14 @@ nav div i {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 70px;
+    box-sizing: border-box;
 }
-.front-page {
+.front-page.grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
+    margin-top: 20px;
 }
 .front-page div{
     padding: 0px 30px;
@@ -198,28 +260,30 @@ nav div i {
     color: #fff;
     font-size: 40px;
     margin: 20px 0px;
+    text-align: center;
 }
 .front-page h1 span{
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .front-page h4{
     font-weight: 500;
     color: #fff;
     font-size: 20px;
     margin: 20px 0px;
-
+    text-align: center;
 }
 .front-page button{
     padding: 10px 30px;
-    background: #fdba16;
+    background: var(--color-ties2);
     border: none;
     color: #fff;
     font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
+    transition: all 300ms ease;
 }
 .front-page button:hover{
-    cursor: pointer;
-    color: #fdba16;
+    color: var(--color-ties2);
     background: #fff;
 }
 
@@ -268,7 +332,7 @@ nav div i {
 .about .row h5{
     font-size: 54px;
     font-weight: 600;
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .about .row p{
     font-size: 18px;
@@ -277,22 +341,34 @@ nav div i {
 }
 .projects{
     margin: 40px 70px 0px 70px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .projects .header{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 .projects .row{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 30px;
+    margin-bottom: 20px;
 }
-.projects .row .card{}
+.projects .row .card{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 .projects .row .card img{
     height: auto;
     width: 100%;
+    border-radius: 10px;
 }
 .projects .row .card .more{
     display: flex;
@@ -300,20 +376,23 @@ nav div i {
     align-items: center;
     transition: 300ms all;
     margin-top: 5px;
+    color: var(--color-ties2);
+    cursor: pointer;
 }
 .projects .row .card .more:hover{
-    color: #fdba16;
+    color: var(--color-ties2);
     cursor: pointer;
 }
 .projects button{
     padding: 10px 20px;
-    background: #fdba16;
+    background: var(--color-ties2);
     color: #fff;
     border-radius: 5px;
     font-size: 16px;
     font-weight: 400;
     border: none;
     cursor: pointer;
+    margin-top: 20px;
 }
 .contact{
     background: #fff;
@@ -343,7 +422,7 @@ nav div i {
     gap: 20px;
 }
 .contact .row .left h3{
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .contact .row .left .item{
     display: flex;
@@ -352,11 +431,11 @@ nav div i {
     margin: 10px 0px;
 }
 .contact .row .left .item i{
-    color: #fdba16;
+    color: var(--color-ties2);
     font-size: 16px;
     padding: 10px;
     border-radius: 50%;
-    background: #173242;
+    background: var(--color-ties1);
 }
 .contact .row .left .item span p{
     margin: 0;
@@ -399,7 +478,7 @@ nav div i {
 }
 .right button{
     padding: 10px 50px;
-    background: #173242;
+    background: var(--color-ties1);
     border: none;
     color: #fff;
     width: 98%;
@@ -437,7 +516,7 @@ nav div i {
 }
 
 .partners .content .left h3 {
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 
 /* Right section */
@@ -475,7 +554,7 @@ nav div i {
 
 
 .our-services{
-    background: #173242;
+    background: var(--color-ties1);
     padding: 0 0 20px 0px;
 }
 .our-services .top{
@@ -497,7 +576,7 @@ nav div i {
 .our-services .cards .card{
     padding: 50px 40px;
     border: 1px solid #fff;
-    border-top: 4px solid #fdba16;
+    border-top: 4px solid var(--color-ties2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -508,7 +587,7 @@ nav div i {
     height: 70px;
     width: 70px;
     border-radius: 50%;
-    background: #fdba16;
+    background: var(--color-ties2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -519,7 +598,7 @@ nav div i {
 }
 .our-services .cards .card  h4{
     margin: 10px 0px;
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .our-services .cards .card  p{
     margin: 10px 0px;
@@ -527,13 +606,13 @@ nav div i {
     font-size: 12px;
 }
 .our-services .cards .card .more{
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .our-services .cards .card .more:hover{
     cursor: pointer;
 }
 footer{
-    background: #173242;
+    background: var(--color-ties1);
     padding: 30px 100px 60px 70px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -555,6 +634,9 @@ footer div li{
 footer div li i{
     font-size: 7px;
 }
+footer div li a{
+    color: #fff;
+}
 footer div span{
     display: flex;
     flex-direction: row;
@@ -562,7 +644,7 @@ footer div span{
     align-items: center;
 }
 footer div h6{
-    color: #fdba16;
+    color: var(--color-ties2);
     font-size: 16px;
     margin: 10px 0;
 }
@@ -579,11 +661,11 @@ footer div h6{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #173242;
+    color: var(--color-ties1);
     margin-bottom: 20px;
 }
 .details-body{
-    background: #173242;
+    background: var(--color-ties1);
     padding:70px;
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -601,7 +683,7 @@ footer div h6{
 }
 .details-body div p span,
 .details-body div h4 span{
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 
 .blog{
@@ -626,10 +708,10 @@ footer div h6{
     padding: 0px;
 }
 .blog .card .text-overlay h6{
-    color: #173242;
+    color: var(--color-ties1);
 }
 .blog .card .text-overlay h5{
-    color: #fdba16;
+    color: var(--color-ties2);
 }
 .blog .card .uploader{
     display: flex;
@@ -647,7 +729,7 @@ footer div h6{
 }
 .blog .card .uploader .left p{
     margin-top: -5px;
-    color: #173242;
+    color: var(--color-ties1);
 }
 .blog-details{
     padding: 30px 250px;
@@ -659,7 +741,7 @@ footer div h6{
     width: 100%;
 }
 .gold-price table tr th{
-    background: #fdba16;
+    background: var(--color-ties2);
     padding: 0px 10px;
 }
 .gold-price table tr th span{
@@ -690,52 +772,21 @@ footer div h6{
 .gold-price table .trr td{
     font-size: 14px;
     font-weight: 500;
-    color: #173242;
+    color: var(--color-ties1);
 }
 .gold-price table .trr td div span li{
     font-size: 14px;
     font-weight: 300;
-    color: #173242;
+    color: var(--color-ties1);
 }
 .gold-price table .trr td div span li#tsh{
     font-size: 14px;
     font-weight: 600;
-    color: #173242;
+    color: var(--color-ties1);
 }
 
-.projects-page{
-    margin: 10px 70px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-.projects-page .card{
-    /* height: 460px; */
-    display: flex;
-    flex-direction: column;
-    gap: 0px;
-    margin: 0;
-    padding: 0;
-    float: 0;
-}
-.projects-page .card img{
-    width: 100%;
-}
-.projects-page .card .primary{
-    background: #173242;
-    color: white; 
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-.projects-page .card .primary h6{
-    color: #fdba16;
-    font-weight: 600;
-}
-.projects-page .card .primary p{
-    color: #ffffff;
-    font-weight: 400;
-}
+
+
 
 .contact_us{
     margin: 70px 150px;
@@ -755,7 +806,7 @@ footer div h6{
     padding: 10px;
     width: 90%;
     background: none;
-    color: #173242;
+    color: var(--color-ties1);
     border: 1px solid #cfdde6;
     margin: 10px 0px;
 }
@@ -763,7 +814,7 @@ footer div h6{
     padding: 10px;
     width: 95%;
     background: none;
-    color: #173242;
+    color: var(--color-ties1);
     border: 1px solid #cfdde6;
     margin: 10px 0px;
 }
@@ -771,14 +822,14 @@ footer div h6{
     padding: 10px;
     width: 95%;
     background: none;
-    color: #173242;
+    color: var(--color-ties1);
     border: 1px solid #cfdde6;
     margin: 10px 0px;
 }
 .contact_us .form-part .left button{
     padding: 10px 50px;
     background: #cfdde6;
-    color: #173242;
+    color: var(--color-ties1);
     border: none;
 }
 .contact_us .form-part .right{
@@ -870,12 +921,12 @@ footer div h6{
 .project_detail .detail_right .services p:hover{
     background: #eed9a3;
     padding: 10px;
-    border-left: 5px solid #fdba16;
+    border-left: 5px solid var(--color-ties2);
     cursor: pointer;
 }
 .project_detail .detail_right .help{
     margin: 50px 0px;
-    background: #fdba16;
+    background: var(--color-ties2);
     padding: 10px;
 }
 .project_detail .detail_right .help h6{
@@ -910,7 +961,7 @@ footer div h6{
 }
 .company_overview .top_overview .descrption h5{
     font-size: 30px;
-    color: #173242;
+    color: var(--color-ties1);
     font-weight: 800;
 }
 .company_overview .body_overview {
@@ -999,7 +1050,7 @@ footer div h6{
 .team_details .left .card span{
     font-size: 20px;
     padding: 10px;
-    border: 3px solid #fdba16;
+    border: 3px solid var(--color-ties2);
     border-radius: 50%;
 }
 .team_details .left .card .cardtext{
@@ -1048,3 +1099,159 @@ footer div h6{
 .services_details .bottom .left ul p{
     margin: 10px;
 }
+
+.project-two{
+    padding: 10px 70px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.project-two .card{
+}
+.project-two .card img{
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+.project-two .card .text-sec{
+    position: relative;
+    padding: 30px;
+    background: #fff;
+    margin: -80px 10px 0px 10px;
+    z-index: 1;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.project-two .card .text-sec p{
+    font-size: 16px;
+    font-weight: 300;
+}
+.project-two .card .text-sec div{
+    margin-top: 50px;
+}
+.project-two .card .text-sec div button{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    background: transparent;
+    border: 1px solid #9f893c;
+    color: #9f893c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.serviceAdd{
+    margin: 50px 200px;
+}
+
+
+
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: all 300ms ease;
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+  .close,
+  .close2,
+  .close3,
+  .close4 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .close:hover,
+  .close:focus,
+  .close2:hover,
+  .close2:focus,
+  .close3:hover,
+  .close3:focus,
+  .close4:hover,
+  .close4:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* popup */
+  .info{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto;
+          padding: 10px 20px;
+      }
+      .info h5{
+          font-size: 22px;
+          font-weight: 600;
+          text-align: center;
+          color: #9f893c;
+          margin-bottom: 10px;
+      }
+      .info form {
+          /* border: 1px dotted blue; */
+          border-radius: 5px;
+          padding: 10px 20px;
+      }
+      .info form .row{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 10px;
+          margin-bottom: 10px;
+      }
+      .info form .row div{
+          display: flex;
+          flex-direction: column;
+      }
+      .info form .row div label{
+          font-size: 15px;
+          font-weight: 400;
+          margin-bottom: 5px;
+          color: #9f893c;
+      }
+      .info form .row div input,
+      .info form .row div select
+      {
+          padding: 10px;
+          border: 1px solid #86848c;
+          border-radius: 5px;
+          background: transparent;
+          font-size: 14px;
+          color: #9f893c;
+          width: 500px;
+      }
+      .info form .row div textarea
+      {
+          padding: 10px;
+          border: 1px solid #86848c;
+          border-radius: 5px;
+          background: transparent;
+          font-size: 14px;
+          color: #9f893c;
+          width: 700px;
+      }
+      .info form button {
+          padding: 10px 30px;
+          background: #9f893c;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+      }

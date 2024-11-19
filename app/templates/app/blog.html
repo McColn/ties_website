@@ -12,45 +12,33 @@
 
     <div style="background: #eef1f3;">
         <div class="blog">
-            <a href="{% url 'blog_detail' %}">
+            {% for i in x %}
+            <a href="{% url 'blog_detail' i.id %}">
                 <div class="card">
-                    <img src="{% static 'app/images/image-3.jpg' %}" alt="">
+                    <img src="{{i.image.url}}" alt="">
                     <div class="text-overlay">
                         <h5>Projects</h5>
-                        <h6>TSF Design and Management in Geita</h6>
-                        <p>The policy to submit most of famous awaken services may hinder us...</p>
+                        <h6>{{i.title}}</h6>
+                        <p>{{ i.body|truncatechars:100|safe }}</p>
                     </div>
                     <div class="uploader">
                         <img src="{% static 'app/images/image-3.jpg' %}" alt="">
                         <div class="left">
-                            <h6>Dr. Alphonce Wikedzi</h6>
+                            <h6>{{i.uploader.first_name}} {{i.uploader.last_name}}</h6>
                             <p>Managing Director</p>
                         </div>
                     </div>
                 </div>
             </a>
-            <div class="card">
-                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
-                <div class="text-overlay">
-                    <h5>Projects</h5>
-                    <h6>TSF Design and Management in Geita</h6>
-                </div>
-            </div>
-            <div class="card">
-                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
-                <div class="text-overlay">
-                    <h5>Projects</h5>
-                    <h6>TSF Design and Management in Geita</h6>
-                </div>
-            </div>
-            <div class="card">
-                <img src="{% static 'app/images/image-3.jpg' %}" alt="">
-                <div class="text-overlay">
-                    <h5>Projects</h5>
-                    <h6>TSF Design and Management in Geita</h6>
-                </div>
-            </div>
+            {% endfor %}
+            
         </div>
+    </div>
+
+    <div class="staticpart">
+        <a href="{% url 'blogAdd' %}">
+            <button>Tweet Blog</button>
+        </a>
     </div>
 
     

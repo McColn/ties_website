@@ -43,8 +43,21 @@
     <nav>
         <div class="nav-list reveal">
             <a href="{% url 'index' %}"><li>HOME</li></a>
-            <li>ABOUT US</li>
-            <a href="#services"><li>SERVICES</li></a>
+            <li>
+                <a href="#">ABOUT US</a>
+                <ul class="show">
+                    <li><a href="{% url 'company_overview' %}">Overview</a></li>
+                    <li><a href="{% url 'team' %}">Team</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">SERVICES</a>
+                <ul class="show">
+                    {% for i in services %}
+                        <li><a href="{% url 'services_details' i.id %}">{{ i.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
             <a href="#partners"><li>CLIENTS</li></a>
             <a href="{% url 'projects' %}"><li>PROJECTS</li></a>
             <a href="{% url 'contact_us' %}"><li>CONTACT-US</li></a>
@@ -84,13 +97,9 @@
         <div>
             <h4>Our Services</h4>
             <div class="line"></div>
-            <li><i class="fa-solid fa-circle"></i> Geology and Resources</li>
-            <li><i class="fa-solid fa-circle"></i>Mining Engineering</li>
-            <li><i class="fa-solid fa-circle"></i>Mine environment and Community</li>
-            <li><i class="fa-solid fa-circle"></i>Civil and Structural Engineering</li>
-            <li><i class="fa-solid fa-circle"></i>Electrical Engineering</li>
-            <li><i class="fa-solid fa-circle"></i>Mechanical Engineering</li>
-            <li><i class="fa-solid fa-circle"></i>New Investment advice and Compliance Support</li>
+            {% for i in services %}
+            <li><i class="fa-solid fa-circle"></i><a href="{% url 'services_details' i.id %}">{{i.title}}</a></li>
+            {% endfor %}
         </div>
         <div>
             <h4>Quick Links</h4>

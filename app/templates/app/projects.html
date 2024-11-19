@@ -16,35 +16,30 @@
     <div class="line"></div>
 </div>
 
-<div class="projects-page">
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    
-    
 
+
+<div class="project-two">
+    {% for i in ongoingProject %}
+    <div class="card">
+        <img src="{{i.image.url}}" alt="">
+        <div class="text-sec">
+            <h6>{{i.title}}</h6>
+            <p>Location: {{i.location}}</p>
+            <p>Client: {{i.client}}</p>
+
+            <div>
+                <!-- <img src="{% static 'app/images/image-5.jpg' %}" alt=""> -->
+                 <a href="{% url 'project_details' i.id %}">
+                    <button>View Details</button>
+                 </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    
 </div>
+
 
 
 <div class="section-title">
@@ -52,42 +47,31 @@
     <div class="line"></div>
 </div>
 
-<div class="projects-page">
+<div class="project-two">
+    {% for i in completedProject %}
     <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    <div class="card">
-        <img src="{% static 'app/images/image-5.jpg' %}" alt="">
-        <div class="primary">
-            <h6>TSF Design in Geita</h6>
-            <p>Designing and development of TSF and commercialization process</p>
-        </div>
-        <div class="secondary"></div>
-    </div>
-    
-    
+        <img src="{{i.image.url}}" alt="">
+        <div class="text-sec">
+            <h6>{{i.title}}</h6>
+            <p>Location: {{i.location}}</p>
+            <p>Client: {{i.client}}</p>
 
+            <div>
+                <!-- <img src="{% static 'app/images/image-5.jpg' %}" alt=""> -->
+                 <a href="{% url 'project_details' i.id %}">
+                    <button>View Details</button>
+                 </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+
+<div class="staticpart">
+    <a href="{% url 'projectAdd' %}">
+        <button>Add Project</button>
+    </a>
 </div>
     
 {% endblock %}
