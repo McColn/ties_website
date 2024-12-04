@@ -51,11 +51,9 @@
             <h5>Our Services</h5>
             <div class="line"></div>
             <div class="services">
-                <p>Feasibility Study</p>
-                <p>Feasibility Study</p>
-                <p>Feasibility Study</p>
-                <p>Feasibility Study</p>
-                <p>Feasibility Study</p>
+                {% for i in services %}
+                <p>{{i.title}}</p>
+                {% endfor %}
             </div>
         </div>
 

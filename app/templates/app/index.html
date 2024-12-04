@@ -3,15 +3,50 @@
 {% block content %}
 
 
-<section class="front-page" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'app/images/image-1.jpg' %}');">
+<!-- <section class="front-page" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static 'app/images/image-1.jpg' %}');">
   <div class="reveal">
       <h1>Mine <span>Environment</span> and Community</h1>
       <h4>Cost Effectively solutions for your projects</h4>
       <button>Contact Us</button>
   </div>
   <div></div>
+</section> -->
+
+<style>
+    body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Ensure vertical scrolling is enabled */
+}
+
+
+</style>
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="9000">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-1.jpg" %}');">
+        <div class="carousel-caption d-md-block reveal">
+          <h1>Welcome to Our Website</h1>
+          <h4>Discover amazing features with us.</h4>
+        </div>
+      </div>
+      <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-2.jpg" %}');">
+        <div class="carousel-caption d-md-block">
+          <h1>Explore Our Services</h1>
+          <h4>We h4rovide high-quality solutions tailored to your needs.</p>
+        </div>
+      </div>
+      <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-3.jpg" %}');">
+        <div class="carousel-caption d-md-block">
+          <h1>Join Our Community</h1>
+          <h4>Connect with like-minded individuals today!</h4>
+        </div>
+      </div>
+    </div>
+
+  </div>
   
-</section>
+  
 
 <section class="overview">
   <div class="text">
@@ -46,9 +81,9 @@
       <h3>Our Services</h3>
       <div class="line"></div>
   </div>
-  <div class="cards">
+  <div class="cards1">
     {% for i in services %}
-      <div class="card reveal">
+      <div class="card1 reveal">
           <div class="circle">
               <i class="fa-solid fa-jet-fighter-up"></i>
           </div>
@@ -76,22 +111,17 @@
   <div class="row">
 
     {% for i in projects %}
-      <div class="card">
-          <img src="{{i.image.url}}" alt=""  class="reveal">
-          <div class="line reveal"></div>
-          <h4 class="reveal">{{i.title}}</h4>
-          <p class="reveal">
-            {{ i.body|truncatechars:100|safe }}
-          </p>
         <a href="{% url 'project_details' i.id %}">
-            <div class="more reveal">
-                <p>read more</p>
-                <i class="fa-solid fa-chevron-right"></i>
-            </div>
+        <div class="card1">
+            <img src="{{i.image.url}}" alt=""  class="reveal">
+            <div class="line reveal"></div>
+            <h4 class="reveal">{{i.title}}</h4>
+            <p class="reveal">
+                {{ i.body|truncatechars:100|safe }}
+            </p>
+        </div>
         </a>
-          
-      </div>
-      {% endfor %}
+    {% endfor %}
 
   </div>
   <a href="{% url 'projects' %}">
@@ -109,19 +139,19 @@
     </div>
 
     <div class="row">
-        <div class="card">
+        <div class="card1">
             <h5>50+</h5>
             <p>Completed Project</p>
         </div>
-        <div class="card">
+        <div class="card1">
             <h5>5+</h5>
             <p>Running Project</p>
         </div>
-        <div class="card">
+        <div class="card1">
             <h5>20+</h5>
             <p>Professional Engineers</p>
         </div>
-        <div class="card">
+        <div class="card1">
             <h5>5+</h5>
             <p>Years of experience</p>
         </div>
@@ -144,42 +174,48 @@
         </div>
         <div class="right">
             <div class="scrolling-wrapper">
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/heinan.png' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/godmwanga.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/kamal.png' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/mwamba-mining.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/synage.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/godmwanga.jpg' %}" alt="">
                 </div>
-                <!-- Duplicated cards for seamless scrolling -->
-                <div class="card">
+                <div class="card1">
+                    <img src="{% static 'app/images/knauf1.png' %}" alt="">
+                </div>
+                <!-- Duplicated card1s for seamless scrolling -->
+                <div class="card1">
                     <img src="{% static 'app/images/heinan.png' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/godmwanga.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/kamal.png' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/mwamba-mining.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/synage.jpg' %}" alt="">
                 </div>
-                <div class="card">
+                <div class="card1">
                     <img src="{% static 'app/images/godmwanga.jpg' %}" alt="">
+                </div>
+                <div class="card1">
+                    <img src="{% static 'app/images/knauf1.png' %}" alt="">
                 </div>
             </div>
         </div>

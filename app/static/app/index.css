@@ -9,11 +9,9 @@
     --color-dark: #27282f;
     --color-primary: rgb(234,181,7);
     --color-danger: rgb(255,67,54);
-
     --color-ties1: #1a3048;
     --color-ties2: #9f893c;
     --color-ties3: #ffbf00;
-
 }
 
 *{
@@ -75,6 +73,7 @@ section{
     overflow-y: auto; /* Enable vertical scrolling */
 }
 
+
 .staticpart {
     display: flex;
     position: fixed;
@@ -126,7 +125,7 @@ section{
     padding: 20px 70px 0px 70px;
     align-items: center;
 }
-.top img{
+.top-nav .top img{
     height: 60px;
     width: auto;
     margin-right: 20px;
@@ -164,7 +163,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 20px 70px 0px 70px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add this line */
+    box-shadow: none;
+}
+nav .menu {
+    display: none;
 }
 
 nav .nav-list {
@@ -232,9 +234,48 @@ nav div i {
     margin: 0 5px;
     font-size: 20px;
 }
+.menu-row{
+    display: none;
+}
+
+.carousel-inner {
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent the carousel from creating scrollbars */
+  }
+  
+  .carousel-item {
+    height: 100%; /* Stretch to parent height */
+    background-size: cover; /* Ensure the background covers the container */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent tiling */
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    bottom: 20%; /* Adjust the caption position */
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow for better visibility */
+  }
+  
+  body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+  
+  .carousel-item img {
+    display: none; /* Hide the image element, using the background for the image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+.carousel-caption h1{
+    font-size: 90px;
+}
 
 .front-page{
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image-3.jpg');
+
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -246,12 +287,7 @@ nav div i {
     padding: 0 70px;
     box-sizing: border-box;
 }
-.front-page.grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 20px;
-}
+
 .front-page div{
     padding: 0px 30px;
 }
@@ -260,7 +296,7 @@ nav div i {
     color: #fff;
     font-size: 40px;
     margin: 20px 0px;
-    text-align: center;
+    font-size: 100px;
 }
 .front-page h1 span{
     color: var(--color-ties2);
@@ -270,7 +306,6 @@ nav div i {
     color: #fff;
     font-size: 20px;
     margin: 20px 0px;
-    text-align: center;
 }
 .front-page button{
     padding: 10px 30px;
@@ -293,13 +328,22 @@ nav div i {
     gap: 20px;
     align-items: center;
     margin: 20px 70px 0px 70px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .overview .image-side{
     width: 100%;
-} 
-.overview .image-side img{
-    width: 600px;
+    align-self: end;
+    padding: 20px;
 }
+.overview .image-side img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
 .about{
     display: flex;
     flex-direction: column;
@@ -359,18 +403,18 @@ nav div i {
     gap: 30px;
     margin-bottom: 20px;
 }
-.projects .row .card{
+.projects .row .card1{
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.projects .row .card img{
+.projects .row .card1 img{
     height: auto;
     width: 100%;
     border-radius: 10px;
 }
-.projects .row .card .more{
+.projects .row .card1 .more{
     display: flex;
     gap: 5px;
     align-items: center;
@@ -379,7 +423,7 @@ nav div i {
     color: var(--color-ties2);
     cursor: pointer;
 }
-.projects .row .card .more:hover{
+.projects .row .card1 .more:hover{
     color: var(--color-ties2);
     cursor: pointer;
 }
@@ -451,37 +495,41 @@ nav div i {
     gap: 20px;
     background: transparent;
     right: 0;
+    margin: 10px 0px;
 }
 .right .row input{
     border: none;
     padding: 10px;
     background: #ebf0f2;
-    width: 90%;
+    width: 100%;
     color: #000;
     margin: 10px 0px;
+    font-size: 14px;
 }
 .right input{
     border: none;
     padding: 10px;
     background: #ebf0f2;
-    width: 95%;
+    width: 100%;
     color: #000;
     margin: 10px 0px;
+    font-size: 14px;
 }
 .right textarea{
     border: none;
     padding: 10px;
     background: #ebf0f2;
-    width: 95%;
+    width: 100%;
     color: #000;
     margin: 10px 0px;
+    font-size: 14px;
 }
 .right button{
     padding: 10px 50px;
     background: var(--color-ties1);
     border: none;
     color: #fff;
-    width: 98%;
+    width: 100%;
 }
 .contact .contact-body .row .right{
     display: flex;
@@ -521,11 +569,11 @@ nav div i {
 
 /* Right section */
 .partners .content .right {
-    overflow: hidden; /* Hide overflowing cards */
+    overflow: hidden; /* Hide overflowing cards1 */
 }
 
 .scrolling-wrapper {
-    display: flex; /* Flexbox to align cards horizontally */
+    display: flex; /* Flexbox to align cards1 horizontally */
     animation: scroll 30s linear infinite; /* Continuous scroll animation */
 }
 
@@ -538,16 +586,16 @@ nav div i {
     }
 }
 
-.partners .content .right .card {
-    flex: 0 0 auto; /* Prevent shrinking or growing of cards */
-    width: 150px; /* Adjust card width as needed */
+.partners .content .right .card1 {
+    flex: 0 0 auto; /* Prevent shrinking or growing of cards1 */
+    width: 150px; /* Adjust card1 width as needed */
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.partners .content .right .card img {
+.partners .content .right .card1 img {
     height: 40px;
     width: auto;
 }
@@ -567,13 +615,13 @@ nav div i {
 .our-services .top h3{
     color: #fff;
 }
-.our-services .cards {
+.our-services .cards1 {
     margin: 30px 70px 0px 70px;
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
 }
-.our-services .cards .card{
+.our-services .cards1 .card1{
     padding: 50px 40px;
     border: 1px solid #fff;
     border-top: 4px solid var(--color-ties2);
@@ -583,7 +631,7 @@ nav div i {
     align-items: center;
     justify-content: center;
 }
-.our-services .cards .card .circle{
+.our-services .cards1 .card1 .circle{
     height: 70px;
     width: 70px;
     border-radius: 50%;
@@ -592,23 +640,23 @@ nav div i {
     align-items: center;
     justify-content: center;
 }
-.our-services .cards .card .circle i{
+.our-services .cards1 .card1 .circle i{
     color: #fff;
     font-size: 24px;
 }
-.our-services .cards .card  h4{
+.our-services .cards1 .card1  h4{
     margin: 10px 0px;
     color: var(--color-ties2);
 }
-.our-services .cards .card  p{
+.our-services .cards1 .card1  p{
     margin: 10px 0px;
     color: #fff;
     font-size: 12px;
 }
-.our-services .cards .card .more{
+.our-services .cards1 .card1 .more{
     color: var(--color-ties2);
 }
-.our-services .cards .card .more:hover{
+.our-services .cards1 .card1 .more:hover{
     cursor: pointer;
 }
 footer{
@@ -633,6 +681,7 @@ footer div li{
 }
 footer div li i{
     font-size: 7px;
+    margin-right: 5px;
 }
 footer div li a{
     color: #fff;
@@ -647,6 +696,9 @@ footer div h6{
     color: var(--color-ties2);
     font-size: 16px;
     margin: 10px 0;
+}
+footer div div a i{
+    color: #fff;
 }
 
 .details{
@@ -693,41 +745,41 @@ footer div h6{
     gap: 20px;
     padding: 30px;
 }
-.blog .card{
+.blog .card1{
     background: #fff;
     padding: 10px;
     border-radius: 10px;
 }
-.blog .card img{
+.blog .card1 img{
     width: 100%;
     height: auto;
     border-radius: 10px;
 }
-.blog .card .text-overlay{
+.blog .card1 .text-overlay{
     margin: 0px;
     padding: 0px;
 }
-.blog .card .text-overlay h6{
+.blog .card1 .text-overlay h6{
     color: var(--color-ties1);
 }
-.blog .card .text-overlay h5{
+.blog .card1 .text-overlay h5{
     color: var(--color-ties2);
 }
-.blog .card .uploader{
+.blog .card1 .uploader{
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
-.blog .card .uploader img{
+.blog .card1 .uploader img{
     height: 40px;
     width: 40px;
     border-radius: 50%;
 }
-.blog .card .uploader .left{
+.blog .card1 .uploader .left{
     display: flex;
     flex-direction: column;
 }
-.blog .card .uploader .left p{
+.blog .card1 .uploader .left p{
     margin-top: -5px;
     color: var(--color-ties1);
 }
@@ -828,12 +880,14 @@ footer div h6{
 }
 .contact_us .form-part .left button{
     padding: 10px 50px;
-    background: #cfdde6;
+    /* background: #cfdde6; */
+    background: var(--color-ties2);
     color: var(--color-ties1);
     border: none;
 }
 .contact_us .form-part .right{
-    background: #cfdde6;
+    /* background: #cfdde6; */
+    background: var(--color-ties2);
     border-radius: 10px;
     padding: 20px 20px 0px 20px;
     display: flex;
@@ -846,11 +900,12 @@ footer div h6{
     gap: 20px;
     margin: 70px 0px;
 }
-.contact_us .detail-part .card{
-    background: #cfdde6;
+.contact_us .detail-part .card1{
+    /* background: #cfdde6; */
+    background: var(--color-ties2);
     padding: 20px;
 }
-.contact_us .detail-part .card .row{
+.contact_us .detail-part .card1 .row{
     display: flex;
     gap: 20px;
     align-items: center;
@@ -1039,7 +1094,7 @@ footer div h6{
     height: auto;
     padding: 20px 0px;
 }
-.team_details .left .card{
+.team_details .left .card1{
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -1047,23 +1102,23 @@ footer div h6{
     background: #d7d4cc;
     padding: 10px;
 }
-.team_details .left .card span{
+.team_details .left .card1 span{
     font-size: 20px;
     padding: 10px;
     border: 3px solid var(--color-ties2);
     border-radius: 50%;
 }
-.team_details .left .card .cardtext{
+.team_details .left .card1 .card1text{
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
-.team_details .left .card .cardtext h5{
+.team_details .left .card1 .card1text h5{
     font-size: 14px;
     font-weight: 300;
     margin: 0px;
 }
-.team_details .left .card .cardtext p{
+.team_details .left .card1 .card1text p{
     font-size: 14px;
     font-weight: 600;
     margin: 0px;
@@ -1106,14 +1161,14 @@ footer div h6{
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
-.project-two .card{
+.project-two .card1{
 }
-.project-two .card img{
+.project-two .card1 img{
     width: 100%;
     height: auto;
     border-radius: 20px;
 }
-.project-two .card .text-sec{
+.project-two .card1 .text-sec{
     position: relative;
     padding: 30px;
     background: #fff;
@@ -1122,14 +1177,14 @@ footer div h6{
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.project-two .card .text-sec p{
+.project-two .card1 .text-sec p{
     font-size: 16px;
     font-weight: 300;
 }
-.project-two .card .text-sec div{
+.project-two .card1 .text-sec div{
     margin-top: 50px;
 }
-.project-two .card .text-sec div button{
+.project-two .card1 .text-sec div button{
     width: 100%;
     padding: 10px;
     font-size: 18px;
@@ -1255,3 +1310,378 @@ footer div h6{
           color: #fff;
           cursor: pointer;
       }
+
+
+/* Styles for tablets */
+@media screen and (max-width: 768px) {
+    .top{
+        display: none;
+    }
+    .top-link{
+        padding: 10px 20px;
+        margin-top: 100px;
+    }
+    .section-title{
+        padding: 10px 20px;
+    }
+    nav .social{
+        display: none;
+    }
+    .menu-row {
+        display: flex;
+        justify-content: space-between;
+        
+        align-items: center;
+        margin: 5px 10px;
+        
+    }
+    .menu-row div button {
+        background: transparent;
+        border: none;
+    }
+    .menu-row img {
+        height: 30px;
+        width: auto;
+    }
+    .menu-row span{
+        cursor: pointer;
+        float: right;
+        font-size: 50px;
+        color: var(--color-ties2);
+    }
+
+    nav {
+        padding: 10px 0px;
+        display: none;
+        transition: all .5s;
+        height: 100vh;
+        background: var(--color-ties2);
+    
+    }
+
+    .nav-list {
+        display: block; 
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        background-color: var(--color-ties2);
+        /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);  */
+        padding: 10px 0; 
+        z-index: 1;
+        top: 80px;
+        position: fixed;
+        transition: all .5s;
+    }
+    
+
+    nav .nav-list.active {
+        display: flex; 
+    }
+
+    nav .nav-list li {
+        font-size: 16px; /* Slightly larger text for mobile */
+        padding: 10px 20px; /* Adjust padding */
+    }
+
+    nav .nav-list li .show {
+        display: none;
+        flex-direction: column;
+        position: static; /* Adjust dropdown positioning for vertical layout */
+        width: 100%; /* Full width dropdown */
+        box-shadow: none; /* Remove shadow */
+    }
+
+    nav .nav-list li:hover .show {
+        display: none; /* Disable hover effect for mobile */
+    }
+
+    nav div i {
+        font-size: 25px; /* Larger icon size for visibility */
+    }
+
+    .overview{
+        grid-template-columns: 1fr;
+        gap: 20px;
+        align-items: center;
+        margin: 20px 20px 0px 20px;
+    }
+    .overview .image-side{
+        padding: 0px;
+    }
+
+    
+    .our-services{
+        background: var(--color-ties1);
+        padding: 0 0 20px 0px;
+    }
+    .our-services .top{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 0px 0px 0px;
+    }
+    .our-services .top h3{
+        color: #fff;
+    }
+    .our-services .cards1 {
+        margin: 30px 20px 0px 20px;
+        grid-template-columns: 1fr;
+    }
+    
+    .our-services .cards1 .card1  h4{
+        text-align: center;
+    }
+    .our-services .cards1 .card1  p{
+        text-align: center;
+    }
+    .our-services .cards1 .card1 .more{
+        color: var(--color-ties2);
+    }
+    .our-services .cards1 .card1 .more:hover{
+        cursor: pointer;
+    }
+
+    .projects{
+        margin: 40px 20px 0px 20px;
+    }
+    
+    .projects .row{
+        grid-template-columns: 1fr;
+    }
+    
+    .projects button{
+        width: 100%;
+    }
+
+    
+    .about div{
+        margin: 20px 0px;
+        padding: 20px 0px;
+    }
+    .about div h2,
+    .about div h6{
+        color: #fff;
+        margin: 20px 20px;
+        text-align: center;
+    }
+    .about .row{
+        grid-template-columns: 1fr;
+    }
+
+
+    .partners .content {
+        margin: 30px 20px 0px 20px;
+    }
+    .partners .content .left p {
+        text-align: center;
+    }
+
+    
+    .contact .header{
+        padding: 50px 0px;
+        height: 35vh;
+    }
+    .contact .contact-body {
+        margin: -100px 20px 50px 20px;
+        padding: 30px;
+    }
+    .contact .row{
+        grid-template-columns: 1fr;
+    }
+    .map{
+        margin: 0;
+        border-radius: 100px;
+    }
+
+    footer{
+        padding: 30px 20px 60px 20px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    footer div img{
+        width: 200px;
+        height: auto;
+        background: var(--color-light);
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        align-self: center;
+        
+    }
+    footer div li{
+        padding: 5px 0px 0px 20px;
+        gap: 10px;
+    }
+    footer div div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+    }
+    footer div div a i{
+        color: #fff;
+        font-size: 30px;
+        margin-top: 20px;
+    }
+
+    .company_overview{
+        padding: 10px 20px;
+    }
+    .company_overview .top_overview{
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 40px 0px;
+    }
+    .company_overview .body_overview {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 50px 0px;
+    }
+    
+    .team {
+        padding: 10px 20px;
+    }
+    .team .members{
+        grid-template-columns: 1fr;
+    }
+    .team .members .team_item p{
+        text-align: center;
+    }
+    .team .members .team_item h6{
+        text-align: center;
+    }
+
+    .team_details {
+        padding: 10px 20px;
+        grid-template-columns: 1fr;
+    }
+    .team_details .left h5,
+    .team_details .right h5{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .team_details .left h6{
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .team_details .left .card1{
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        align-items: center;
+        background: #d7d4cc;
+        padding: 10px;
+    }
+
+    .services_details {
+        padding: 10px 20px;
+    }
+    .services_details img{
+        width: 100%;
+        height: auto;
+        margin: 0;
+    }
+    .services_details h5{
+        font-size: 26px;
+        font-weight: 600;
+    }
+    .services_details .bottom{
+        margin: 100px 0px;
+        grid-template-columns: 1fr;
+    }
+    .services_details .bottom .right {
+        display: none;
+    }
+    .services_details .bottom .left ul p{
+        margin: 5px;
+    }
+
+    .project-two{
+        padding: 10px 20px;
+        grid-template-columns: 1fr;
+    }
+    .project-two .card1 .text-sec div{
+        margin-top: 20px;
+    }
+
+
+    .project_detail{
+        padding: 10px 20px;
+        grid-template-columns: 1fr;
+    }
+    .project_detail .detail_left .list{
+        margin: 10px 0px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .project_detail .detail_left .project_img{
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 10px 0px;
+    }
+    .project_detail .detail_left .project_img img{
+        border-radius: 10px;
+    }
+    .project_detail .detail_right {}
+
+    .contact_us{
+        margin: 20px 20px;
+    }
+    .contact_us .form-part{
+        grid-template-columns: 1fr;
+        width: 100%;
+        margin: 0;
+    }
+    .contact_us .form-part .row{
+        grid-template-columns: 1fr;
+    }
+    .contact_us .form-part .left .row input{
+        width: 100%;
+    }
+    .contact_us .form-part .left input{
+        width: 100%;
+    }
+    .contact_us .form-part .left textarea{
+        width: 100%;
+        margin: 0;
+    }
+    .contact_us .detail-part{
+        grid-template-columns: 1fr;
+    }
+
+    
+    .blog{
+        margin: 0px 10px;
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    .blog .card1 .uploader{
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gold-price{
+        padding: 30px 20px;
+        overflow-x: auto;
+    }
+    .gold-price table{
+        width: 100%;
+        z-index: inherit;
+    }
+    .carousel-caption {
+        bottom: 25%;
+      }
+
+    .carousel-caption h1{
+        font-size: 60px;
+    }
+
+  
+   
+  }
+  
+  /* Styles for mobile phones */
+@media screen and (max-width: 480px) {
+    
+  }

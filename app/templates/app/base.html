@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TIES CO LTD</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!-- google icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- fontawesome icons -->
@@ -41,9 +43,19 @@
                 </p>
             </div>
         </div>
+
+        <div class="menu-row">
+            <img src="{% static 'app/images/logo_final.png' %}" alt="" class="reveal">
+            <div>
+                
+                <button class="menu-btn" id="menuBtn">
+                    <span class="material-icons">menu</span>
+                </button>
+            </div>
+        </div>
     
-        <nav>
-            <div class="nav-list reveal">
+        <nav id="navMenu">
+            <div class="nav-list">
                 <!-- <img src="{% static 'app/images/logo_final.png' %}" alt="" class="reveal" height="30px"> -->
                 <a href="{% url 'index' %}"><li>HOME</li></a>
                 <li>
@@ -68,7 +80,7 @@
                 <a href="{% url 'blog' %}"><li>BLOG</li></a>
                 <a href="{% url 'gold_price' %}"><li>MINERAL-PRICES</li></a>
             </div>
-            <div class="reveal">
+            <div class="social reveal">
                 <i class="fa-brands fa-facebook-f"></i>
                 <i class="fa-brands fa-instagram"></i>
                 <i class="fa-brands fa-x-twitter"></i>
@@ -76,7 +88,9 @@
                 <i class="fa-brands fa-tiktok"></i>
                 <i class="fa-brands fa-youtube"></i>
             </div>
+            
         </nav>
+        
         
 
     </div>
@@ -110,15 +124,15 @@
         <div>
             <h4>Quick Links</h4>
             <div class="line"></div>
-            <li><i class="fa-solid fa-circle"></i>Staff Mail</li>
-            <li><i class="fa-solid fa-circle"></i>Engineering Registration Board</li>
-            <li><i class="fa-solid fa-circle"></i>Contractors registration Board (CRB)</li>
-            <li><i class="fa-solid fa-circle"></i>National Environment Management Council (NEMC)</li>
-            <li><i class="fa-solid fa-circle"></i>Ministry of Minerals</li>
-            <li><i class="fa-solid fa-circle"></i>Ministry Commission</li>
-            <li><i class="fa-solid fa-circle"></i>Tanzania Chamber of Mines</li>
-            <li><i class="fa-solid fa-circle"></i>Occupational Safety and Health Authority (OSHA)</li>
-            <li><i class="fa-solid fa-circle"></i>Institution of Engineers Tanzania</li>
+            <li><a href=""><i class="fa-solid fa-circle"></i> Staff Mail</a></li>
+            <li><a href="https://www.erb.go.tz/"><i class="fa-solid fa-circle"></i> Engineering Registration Board</a></li>
+            <li><a href="https://www.crb.go.tz/"><i class="fa-solid fa-circle"></i> Contractors registration Board (CRB)</a></li>
+            <li><a href="https://www.nemc.or.tz/"><i class="fa-solid fa-circle"></i> National Environment Management Council (NEMC)</a></li>
+            <li><a href="https://www.madini.go.tz/"><i class="fa-solid fa-circle"></i> Ministry of Minerals</a></li>
+            <li><a href="https://www.tumemadini.go.tz/"><i class="fa-solid fa-circle"></i> Mining Commission</a></li>
+            <li><a href="https://chamberofmines.or.tz/"><i class="fa-solid fa-circle"></i> Tanzania Chamber of Mines</a></li>
+            <li><a href="https://www.osha.go.tz/"><i class="fa-solid fa-circle"></i> Occupational Safety and Health Authority (OSHA)</a></li>
+            <li><a href="https://iet.or.tz/"><i class="fa-solid fa-circle"></i> Institution of Engineers Tanzania</a></li>
         </div>
         <div>
             <h4>Contact Info</h4>
@@ -144,17 +158,16 @@
             </span>
             <h6>Follow us on Social Networks</h6>
             <div>
-                <i class="fa-brands fa-facebook-f"></i>
-                <i class="fa-brands fa-instagram"></i>
-                <i class="fa-brands fa-x-twitter"></i>
-                <i class="fa-brands fa-linkedin-in"></i>
-                <i class="fa-brands fa-tiktok"></i>
-                <i class="fa-brands fa-youtube"></i>
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/ties_company_ltd/"><i class="fa-brands fa-instagram"></i></a>
+                <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/99900605/admin/dashboard/"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ties_company_ltd?is_from_webapp=1&sender_device=pc"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@tanzaniaintegratedeng.solu277"><i class="fa-brands fa-youtube"></i></a>
             </div>
 
             <h6>Upload page</h6>
             <p><a href="{% url 'serviceAdd' %}">Services Add</a></p>
-            <p><a href="">Emails</a></p>
         </div>
     </footer>
 
@@ -168,6 +181,29 @@
         });
     </script>
 
+
+
+    <script>
+        // Get the button and the navigation menu
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        // Add click event listener to the button
+        menuBtn.addEventListener('click', () => {
+            // Toggle the display of the navigation menu
+            if (navMenu.style.display === 'none' || navMenu.style.display === '') {
+                navMenu.style.display = 'block'; // Show the menu
+            } else {
+                navMenu.style.display = 'none'; // Hide the menu
+            }
+        });
+    </script>
+
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
 </body>
 </html>
