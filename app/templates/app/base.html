@@ -20,22 +20,22 @@
 
     <div class="top-nav">
         <div class="top">
-            <img src="{% static 'app/images/logo_final.png' %}" alt="" class="reveal">
-            <div class="reveal">
+            <img src="{% static 'app/images/logo_final.png' %}" alt="">
+            <div>
                 <span class="material-icons">location_on</span>
-                <p class="reveal">
+                <p>
                     <span>SKYCITY MALL (7th Floor), PLOT No. 403/1& 2, BLOCK A,</span>
                     <span>Mlalakuwa St, Dar-es-Salaam – Tanzania</span>
                 </p>
             </div>
-            <div  class="reveal">
+            <div>
                 <span class="material-icons">mail</span>
                 <p>
                     <span>info@ties.co.tz /</span>
                     <span>md@ties.co.tz</span>
                 </p>
             </div>
-            <div class="reveal">
+            <div>
                 <span class="material-icons">call</span>
                 <p>
                     <span>+255 653 405 687 /</span>
@@ -49,7 +49,8 @@
             <div>
                 
                 <button class="menu-btn" id="menuBtn">
-                    <span class="material-icons">menu</span>
+                    <span class="material-icons" id="menuIcon">menu</span>
+                    <span class="material-icons" id="cancelIcon" style="display: none;">cancel</span>
                 </button>
             </div>
         </div>
@@ -166,8 +167,6 @@
                 <a href="https://www.youtube.com/@tanzaniaintegratedeng.solu277"><i class="fa-brands fa-youtube"></i></a>
             </div>
 
-            <h6>Upload page</h6>
-            <p><a href="{% url 'serviceAdd' %}">Services Add</a></p>
         </div>
     </footer>
 
@@ -184,17 +183,23 @@
 
 
     <script>
-        // Get the button and the navigation menu
+        // Get the button, the navigation menu, and the icons
         const menuBtn = document.getElementById('menuBtn');
         const navMenu = document.getElementById('navMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        const cancelIcon = document.getElementById('cancelIcon');
 
         // Add click event listener to the button
         menuBtn.addEventListener('click', () => {
             // Toggle the display of the navigation menu
             if (navMenu.style.display === 'none' || navMenu.style.display === '') {
                 navMenu.style.display = 'block'; // Show the menu
+                menuIcon.style.display = 'none'; // Hide the menu icon
+                cancelIcon.style.display = 'inline'; // Show the cancel icon
             } else {
                 navMenu.style.display = 'none'; // Hide the menu
+                menuIcon.style.display = 'inline'; // Show the menu icon
+                cancelIcon.style.display = 'none'; // Hide the cancel icon
             }
         });
     </script>

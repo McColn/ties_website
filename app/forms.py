@@ -60,7 +60,17 @@ class BlogForm(forms.ModelForm):
 class GoldPriceForm(forms.ModelForm):
     class Meta:
         model = GoldPrice
-        fields = ['usd','mining']
+        fields = ['usd', 'usdtoz',]
+        widgets = {
+            'usd': forms.NumberInput(attrs={
+                'style': 'font-size: 16px; color: #333; border: 2px solid grey; padding: 7px; border-radius: 5px; width: 100%; margin-bottom: 20px;',
+                'placeholder': 'Enter USD value here'
+            }),
+            'usdtoz': forms.NumberInput(attrs={
+                'style': 'font-size: 16px; color: #333; border: 2px solid grey; padding: 7px; border-radius: 5px; width: 100%; margin-bottom: 20px;',
+                'placeholder': 'Enter USD to OZ value here'
+            }),
+        }
 
 class ServiceForm(forms.ModelForm):
     class Meta:

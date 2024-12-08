@@ -1,0 +1,75 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+
+<main class="content px-3 py-2">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Admin Dashboard</h4>
+        </div>
+        <div class="row">
+            <!-- First Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{Messages_count}}</h1>
+                        <p class="card-text">Received Sms.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{team_count}}</h1>
+                        <p class="card-text">Team Members</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{service_count}}</h1>
+                        <p class="card-text">Services</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ongoing_count}}</h1>
+                        <p class="card-text">Active Project</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{completed_count}}</h1>
+                        <p class="card-text">Completed Project</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Card -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{blog_count}}</h1>
+                        <p class="card-text">Blog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

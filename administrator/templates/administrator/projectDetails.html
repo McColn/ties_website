@@ -1,0 +1,53 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<main class="content px-3 py-2">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4 style="font-weight: 800;">{{s.title}} - {{s.status}}</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{s.image.url}}" alt="">
+                    </div>
+                    <div class="row p-4">
+                        {% for i in project_images %}
+                            <div class="col-md-4 mb-2">
+                                <img src="{{i.image.url}}" alt="" width="100%" height="auto" style="border-radius: 10px;">
+                            </div>
+                        {% endfor %}
+                        <a href="{% url 'upload_project_image' s.id %}" class="btn btn-secondary">Upload More Images</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5>Location: {{s.location}}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Client: {{s.client}}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Time Frame: {{s.timeframe}}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5>Commodities: {{s.Commodities}}</h5>
+                            </div>
+                        </div>
+                        <h5 class="card-title">{{s.body|safe}}</h5>
+                        <a href="{% url 'projectEdit' s.id %}" class="btn btn-secondary">Edit</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

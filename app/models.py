@@ -54,14 +54,7 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-class GoldPrice(models.Model):
-    usd = models.FloatField()
-    mining = models.FloatField()
-    localPrice = models.FloatField()
-    worldPrice = models.FloatField()
 
-    def __str__(self):
-        return self.mining
 
 class Service(models.Model):
     title = models.CharField(max_length=200)
@@ -88,3 +81,30 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+    
+class GoldPrice(models.Model):
+    usd = models.FloatField()
+    usdtoz = models.FloatField()
+    perGramWordTzs = models.FloatField(null=True, blank=True)
+    perGramWordUsd = models.FloatField(null=True, blank=True)
+    perGramLocalTzs = models.FloatField(null=True, blank=True)
+    perGramLocalUsd = models.FloatField(null=True, blank=True)
+    perKgWordTzs = models.FloatField(null=True, blank=True)
+    perKgWordUsd = models.FloatField(null=True, blank=True)
+    perKgLocalTzs = models.FloatField(null=True, blank=True)
+    perKgLocalUsd = models.FloatField(null=True, blank=True)
+    uploadedDate = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.usd)
+
+    def save(self, *args, **kwargs):
+        self.perGramWordTzs = (self.usd * self.usdtoz) / 31.10349947
+        self.perGramWordUsd = self.usdtoz
+        self.perGramLocalTzs = self.perGramWordTzs * 0.9
+        self.perGramLocalUsd = self.perGramWordUsd * 0.9
+        self.perKgWordTzs = self.perGramWordTzs * 1000
+        self.perKgWordUsd = self.perGramWordUsd * 1000
+        self.perKgLocalTzs = self.perGramLocalTzs * 1000
+        self.perKgLocalUsd = self.perGramLocalUsd * 1000
+        super().save(*args, **kwargs)

@@ -1,0 +1,31 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<main class="content px-3 py-2">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Messages from Website</h4>
+        </div>
+        <div class="row">
+            {% for i in message %}
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">{{i.fullname}}</h1>
+                        <h5 class="card-title">{{i.email}}</h5>
+                        <h5 class="card-title">{{i.phoneNumber}}</h5>
+                        <p class="card-text">{{i.message}}</p>
+                        <a href="{% url 'deleteMessage' i.id %}">
+                            <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</main>
+
+{% endblock %}

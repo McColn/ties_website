@@ -1,0 +1,22 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="serviceAdd">
+    <h3>Today Gold Price Update</h3>
+    <form method="post" id="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.usd.label_tag }} {{ form.usd }}
+        </div>
+
+        <div>
+            {{ form.usdtoz.label_tag }} {{ form.usdtoz }}
+        </div>
+
+        <button type="submit" class="btn btn-secondary">Save</button>
+    </form>
+</div>
+
+{% endblock %}

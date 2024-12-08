@@ -1,5 +1,6 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% load humanize %} 
 {% block content %}
 
 <!-- <div class="details">
@@ -32,87 +33,36 @@
                 </th>
             </tr>
 
+            {% for i in x %}
             <tr class="trr">
-                <td>June 12, 2024</td>
+                <td>{{i.uploadedDate}}</td>
                 <td>
                     <div>
                         <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
+                            <li>{{i.perGramWordUsd|floatformat:2|intcomma}} Usd</li>
+                            <li id="tsh">{{i.perGramWordTzs|floatformat:2|intcomma}} Tsh</li>
                         </span>
                         <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
+                            <li>{{i.perGramLocalUsd|floatformat:2|intcomma}} Usd</li>
+                            <li id="tsh">{{i.perGramLocalTzs|floatformat:2|intcomma}} Tsh</li>
                         </span>
                     </div>
                 </td>
                 <td>
                     <div>
                         <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
+                            <li>{{i.perKgWordUsd|floatformat:2|intcomma}} Usd</li>
+                            <li id="tsh">{{i.perKgWordTzs|floatformat:2|intcomma}} Tsh</li>
                         </span>
                         <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
+                            <li>{{i.perKgLocalUsd|floatformat:2|intcomma}} Usd</li>
+                            <li id="tsh">{{i.perKgLocalTzs|floatformat:2|intcomma}} Tsh</li>
                         </span>
                     </div>
                 </td>
             </tr>
-            <tr class="trr">
-                <td>June 12, 2024</td>
-                <td>
-                    <div>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                    </div>
-                </td>
-            </tr>
-            <tr class="trr">
-                <td>June 12, 2024</td>
-                <td>
-                    <div>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                    </div>
-                </td>
-                <td>
-                    <div>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                        <span>
-                            <li>24 Usd</li>
-                            <li id="tsh">240,000 Tsh</li>
-                        </span>
-                    </div>
-                </td>
-            </tr>
+            {% endfor %}
+
             
         </table>
         

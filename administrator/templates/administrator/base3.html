@@ -1,0 +1,111 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mccoln</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/90ee3bc580.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'administrator/index.css' %}">
+    
+    
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="sidebar-logo">
+                <a href="#">TIES Website Management</a>
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-header">
+                    Admin Element
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'home' %}" class="sidebar-link">
+                        <i class="fa-solid fa-list pe-2"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'messages' %}" class="sidebar-link">
+                        <i class="fa-solid fa-message pe-2"></i>
+                        Messages
+                    </a>
+                </li>
+                
+                <li class="sidebar-item">
+                    <a href="{% url 'services' %}" class="sidebar-link">
+                        <i class="fa-regular fa-credit-card pe-2"></i>
+                        Services
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'team2' %}" class="sidebar-link">
+                        <i class="fa-solid fa-user-nurse pe-2"></i>
+                        Team
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'projects2' %}" class="sidebar-link">
+                        <i class="fa-regular fa-circle-up pe-2"></i>
+                        Projects
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'blog2' %}" class="sidebar-link">
+                        <i class="fa-solid fa-blog pe-2"></i>
+                        Blog
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'goldPrice' %}" class="sidebar-link">
+                        <i class="fa-regular fa-gem pe-2"></i>
+                        Mineral price
+                    </a>
+                </li>
+
+            </ul>
+            
+        </aside>
+        <div class="main">
+            <nav class="navbar navbar-expand px-3 border-bottom">
+                <button class="btn" id="sidebar-toggle" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse navbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon" pe-md-0>
+                                <img src="{% static 'administrator/images/coln.jpg' %}" class="avatar img-fluid rounded" alt="">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a href="#" class="dropdown-item">Hello, {{user.username}}</a>
+                                <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+            </nav>
+
+            {% block content %}
+            {% endblock %}
+
+            <!-- /*theme* -->
+            <a href="#" class="theme-toggle">
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+            </a>
+
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'administrator/index.js' %}"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+</body>
+</html>

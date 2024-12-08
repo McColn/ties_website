@@ -1,0 +1,58 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<div class="serviceAdd">
+    <h3>Edit Team Member <small style="font-size: 12px;">(Image: 1687*1687px)</small></h3>
+    <form method="post" id="post-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            {{ form.name.label_tag }} {{ form.name }}
+        </div>
+
+        <div>
+            {{ form.role.label_tag }} {{ form.role }}
+        </div>
+        <div>
+            {{ form.email.label_tag }} {{ form.email }}
+        </div>
+        <div>
+            {{ form.image.label_tag }} {{ form.image }}
+        </div>
+        
+        <!-- Create the editor container -->
+        <div id="editor-container"></div>
+        <!-- Hidden input to store the content -->
+        <input type="hidden" name="profile" id="body">
+
+        <button type="submit" style="padding: 10px 30px; margin-top: 20px;">Save</button>
+    </form>
+</div>
+
+<!-- Quill Library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+    var quill = new Quill('#editor-container', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'header': '1'}, {'header': '2'}, { 'font': [] }],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ['bold', 'italic', 'underline'],
+                [{ 'align': [] }],
+                ['link', 'image']
+            ]
+        }
+    });
+
+    // Set the initial content of the editor
+    quill.root.innerHTML = "{{ profile|safe }}";
+
+    // On form submit, update the hidden input with the Quill data
+    document.getElementById('post-form').onsubmit = function() {
+        var body = document.querySelector('input[name=profile]');
+        body.value = quill.root.innerHTML;
+    };
+</script>
+
+{% endblock %}

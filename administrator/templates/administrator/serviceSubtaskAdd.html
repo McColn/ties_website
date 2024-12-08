@@ -1,0 +1,21 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container p-4">       
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h5 class="mb-3">Add new service in {{service.title}}</h5>
+        
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label for="point" class="form-label">Add New</label>
+                <input type="text" name="point" class="form-control" id="point" placeholder="Enter service point">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</section>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<main class="content px-3 py-2">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Team Members of TIES</h4>
+        </div>
+        <div class="row">
+            {% for i in team %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{i.image.url}}" alt="">
+                        <h5 class="card-title">{{i.name}}</h5>
+                        <h6 class="card-title">{{i.role}}</h6>
+                        <p class="card-text">{{i.email}}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{% url 'teamEdit' i.id %}" class="btn btn-secondary">Edit/View</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'deleteTeamMember' i.id %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <a href="{% url 'teamAdd' %}">
+            <button class="add">Add</button>
+        </a>
+    </div>
+</main>
+
+{% endblock %}

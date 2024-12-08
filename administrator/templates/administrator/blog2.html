@@ -1,0 +1,38 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% block content %}
+
+<main class="content px-3 py-2">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <h4>Blogs</h4>
+        </div>
+        <div class="row">
+            {% for i in x%}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{i.image.url}}" alt="">
+                        <h5 class="card-title">{{i.title}}</h5>
+                        <p class="card-text">{{i.uploader.username}}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="{% url 'blogEdit' i.id %}" class="btn btn-secondary">Edit/View</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{% url 'blogDelete' i.id %}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <a href="{% url 'blogAdd' %}">
+            <button class="add">Add</button>
+        </a>
+    </div>
+</main>
+
+{% endblock %}

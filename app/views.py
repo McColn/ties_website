@@ -46,30 +46,14 @@ def blog_detail(request,id):
     }
     return render(request, 'app/blog_detail.html',context)
 
-def blogAdd(request):
-    form = BlogForm()
-    if request.method == 'POST':
-        form = BlogForm(request.POST, request.FILES)
-        if form.is_valid():
-            try:
-                leave = form.save(commit=False)
-                leave.uploader = request.user  # Assigning the uploader
-                leave.save()
-                return redirect('blog')
-            except Exception as e:
-                print(f"Error updating item: {e}")
-                print(f"Username: {request.user.username}")
-        else:
-            print("Form is not valid")
-    context = {
-        'form': form
-    }
-    return render(request, 'app/blogAdd.html', context)
+
 
 def gold_price(request):
     services = Service.objects.all()
+    x = GoldPrice.objects.all()
     context = {
-        'services':services
+        'services':services,
+        'x':x
     }
     return render(request, 'app/gold_price.html',context)
 
@@ -100,26 +84,7 @@ def project_details(request,id):
     }
     return render(request, 'app/project_details.html',context)
 
-def upload_project_image(request, project_id):
-    # Get the specific project by its ID or return a 404 error if not found
-    project = get_object_or_404(Project, id=project_id)
 
-    if request.method == 'POST':
-        # Process the form submission
-        form = ProjectImagesForm(request.POST, request.FILES)
-        if form.is_valid():
-            project_image = form.save(commit=False)
-            project_image.project = project  # Associate the image with the specific project
-            project_image.save()
-            # return redirect('project_details', project_id=project.id)
-            return redirect('project_details', id=project.id)
-
-    else:
-        # Display an empty form for image upload
-        form = ProjectImagesForm()
-
-    # Render the upload form in the template
-    return render(request, 'app/project_details.html', {'form': form, 'project': project})
 
 
 def contact_us(request):
@@ -163,17 +128,7 @@ def team_details(request,id):
     }
     return render(request, 'app/team_details.html',context)
 
-def teamAdd(request):
-    form = TeamForm()
-    if request.method == 'POST':
-        form = TeamForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('team')
-    context={
-        'form':form
-    }
-    return render(request, 'app/teamAdd.html',context)
+
 
 def services_details(request, id):
     # Using get_object_or_404 ensures it returns a 404 error if the service doesn't exist
@@ -188,54 +143,6 @@ def services_details(request, id):
     }
     return render(request, 'app/services_details.html', context)
 
-
-
-def serviceAdd(request):
-    form = ServiceForm()
-    if request.method == 'POST':
-        form = ServiceForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('serviceAdd')
-    context={
-        'form':form
-    }
-    return render(request, 'app/serviceAdd.html',context)
-
-def upload_service_point(request, service_id):
-    # Get the specific project by its ID or return a 404 error if not found
-    service = get_object_or_404(Service, id=service_id)
-
-    if request.method == 'POST':
-        # Process the form submission
-        form = ServicePointForm(request.POST, request.FILES)
-        if form.is_valid():
-            service_image = form.save(commit=False)
-            service_image.service = service  # Associate the image with the specific service
-            service_image.save()
-            # return redirect('project_details', service_id=project.id)
-            return redirect('services_details', id=service.id)
-
-    else:
-        # Display an empty form for image upload
-        form = ServicePointForm()
-
-    # Render the upload form in the template
-    return render(request, 'app/services_details.html', {'form': form, 'service': service})
-
-
-
-def projectAdd(request):
-    form = ProjectForm()
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('projectAdd')
-    context={
-        'form':form
-    }
-    return render(request, 'app/projectAdd.html',context)
 
 
 def pdf_reader(request):

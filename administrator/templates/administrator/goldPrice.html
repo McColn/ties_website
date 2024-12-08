@@ -1,0 +1,52 @@
+{% extends 'administrator/base3.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row text-center">
+        <h4 class="col-12 mb-4">Gold Price</h4>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Local Price in Gram/Tzs</p>
+                    <h3 class="card-title">{{ x.perGramLocalTzs|floatformat:2|intcomma }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Local Price in Kilogram/Tzs</p>
+                    <h3 class="card-title">{{ x.perKgLocalTzs|floatformat:2|intcomma }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">World Price in Gram/Tzs</p>
+                    <h3 class="card-title">{{ x.perGramWordTzs|floatformat:2|intcomma }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">World Price in Kilogram/Tzs</p>
+                    <h3 class="card-title">{{ x.perKgWordTzs|floatformat:2|intcomma }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="{% url 'goldPriceEdit' x.id%}">
+        <button class="btn btn-secondary">Update</button>
+    </a>
+
+    <a href="{% url 'goldPriceAdd' %}">
+        <button class="add">Add</button>
+    </a>
+
+</div>
+
+{% endblock %}
