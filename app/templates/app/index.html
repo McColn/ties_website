@@ -20,14 +20,14 @@
     <div class="carousel-inner">
       <div class="carousel-item active" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-1.jpg" %}');">
         <div class="carousel-caption d-md-block reveal">
-          <h1>Welcome to Our Website</h1>
-          <h4>Discover amazing features with us.</h4>
+          <h1>Mine Environment and Community</h1>
+          <h4>Cost effectively and technically sound</h4>
         </div>
       </div>
       <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-2.jpg" %}');">
         <div class="carousel-caption d-md-block">
-          <h1>Explore Our Services</h1>
-          <h4>We h4rovide high-quality solutions tailored to your needs.</p>
+          <h1>Civil and Structural Engineering</h1>
+          <h4>Several design option linked with an assignment of associated costs and risks</p>
         </div>
       </div>
       <div class="carousel-item" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{% static "app/images/image-3.jpg" %}');">
@@ -106,11 +106,11 @@
 
     {% for i in projects %}
         <a href="{% url 'project_details' i.id %}">
-        <div class="card1">
+        <div class="card1 reveal">
             <img src="{{i.image.url}}" alt=""  class="reveal">
-            <div class="line reveal"></div>
-            <h4 class="reveal">{{i.title}}</h4>
-            <p class="reveal">
+            <div class="line"></div>
+            <h4>{{i.title}}</h4>
+            <p>
                 {{ i.body|truncatechars:100|safe }}
             </p>
         </div>

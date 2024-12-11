@@ -853,6 +853,7 @@ footer div div a i{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    margin: 0 3px;
 }
 .contact_us .form-part .left .row input{
     padding: 10px;
@@ -1675,6 +1676,14 @@ footer div div a i{
 
     .carousel-caption h1{
         font-size: 60px;
+    }
+    .blog-details{
+        padding: 30px 20px;
+    }
+
+    nav .nav-list li:hover .show {
+        display: block; /* Show the dropdown when hovering over parent li */
+        background: var(--color-ties2);
     }
 
   

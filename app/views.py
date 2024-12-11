@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from app.forms import *
 from app.models import *
+from django.contrib import messages
 # Create your views here.
 
 def index(request):
@@ -94,6 +95,7 @@ def contact_us(request):
         form = MessageForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Thanks for contacting us. Message sent successfully!')
             return redirect('contact_us')
     
     context = {

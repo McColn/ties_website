@@ -51,7 +51,9 @@
             <div class="line"></div>
             <div class="services">
                 {% for i in services %}
-                <p>{{i.title}}</p>
+                <a href="{% url 'services_details' i.id %}">
+                    <p>{{i.title}}</p>
+                </a>
                 {% endfor %}
             </div>
         </div>
@@ -64,7 +66,10 @@
                 Dar es salaam
                 or submit a business inquiry online
             </p>
-            <button>Contact</button>
+            <a href="{% url 'contact_us' %}">
+                <button>Contact</button>
+            </a>
+            
         </div>
     </div>
 </div>

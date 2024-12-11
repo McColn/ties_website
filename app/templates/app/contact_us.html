@@ -11,6 +11,11 @@
 
 
     <div class="contact_us">
+        {% for message in messages %}
+            <div class="alert alert-info" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="form-part">
             <div class="left">
                 <form action="" method="post">
